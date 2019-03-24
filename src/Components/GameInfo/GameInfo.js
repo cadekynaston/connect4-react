@@ -9,7 +9,7 @@ function GameInfo(props) {
   return (
     <div className="game-info">
       <h1>Connect 4&nbsp;
-        <span style={{color:"#61DAFB", textDecoration:"underline"}}>React</span>
+        <span style={{color:"#61DAFB"}}>React</span>
       </h1>
       <h2>{currentGameState}</h2>
     </div>
