@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Assistant:300,400,700');
 
+body {
+  font-family: 'Assistant', sans-serif;
+  color: rgb(56, 44, 44);
+}
 .game-board {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -8,18 +13,19 @@
   height: 500px;
   padding: 10px;
   margin: 0 auto;
-  background-color: #3D5664
-  ;
+  background-color: #3D5664;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .game-piece {
-  /* height: 75px;
-  width: 75px; */
   border-radius: 50%;
   background-color: #fff;
-  /* //CFB961 */
 }
 
 .game-piece:hover {
   cursor: pointer;
+}
+
+.game-info {
+  text-align: center;
 }

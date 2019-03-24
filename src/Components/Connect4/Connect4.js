@@ -10,9 +10,8 @@ class Connect4 extends React.Component {
   constructor() {
     super()
 
-    const game = new Game()
     this.state = {
-      game
+      game: new Game()
     }
 
     this.selectColumn = this.selectColumn.bind(this)
@@ -20,10 +19,14 @@ class Connect4 extends React.Component {
   }
 
   selectColumn(column) {
+
+    if (this.state.game.winner) return
+
+    this.state.game.updateBoard(column);
     this.setState(prevState => {
-      prevState.game.updateBoard(column);
       return prevState;
     })
+
   }
 
   restartGame() {
@@ -36,7 +39,7 @@ class Connect4 extends React.Component {
 
     return (
       <>
-        <GameInfo restartGame={this.restartGame} />
+        <GameInfo restartGame={this.restartGame} game={this.state.game} />
         <GameBoard selectColumn={this.selectColumn} game={this.state.game} />
       </>
     )
