@@ -16,7 +16,7 @@ function GamePiece(props) {
       style={{backgroundColor: props.color}}
       onClick={handleClick}
       onMouseOver={handleHover}
-      className={`game-piece ${props.preview ? 'preview' : ''}`} >
+      className={`game-piece ${props.preview && 'preview'}`} >
     </div>
   )
 }
