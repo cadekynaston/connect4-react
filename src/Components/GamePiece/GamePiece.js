@@ -6,8 +6,17 @@ function GamePiece(props) {
     props.columnClick(props.column)
   }
 
+  let handleHover = () => {
+    props.previewSelection(props.column)
+  }
+
   return (
-    <div style={{backgroundColor: props.color}} onClick={handleClick} className="game-piece">
+
+    <div
+      style={{backgroundColor: props.color}}
+      onClick={handleClick}
+      onMouseOver={handleHover}
+      className={`game-piece ${props.preview ? 'preview' : ''}`} >
     </div>
   )
 }

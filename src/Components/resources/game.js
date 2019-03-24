@@ -10,7 +10,7 @@ class Game {
           color: '#FFF',
           row: i,
           column: j,
-          playersMove: null
+          playersMove: null,
         })
       }
       this.board.push(column);
@@ -23,6 +23,11 @@ class Game {
         color: '#CFB961'
       }
     ]
+
+    this.previewCell = {
+      column: null,
+      row: null
+    }
 
     this.currentPlayer = 0;
     this.winner = false
@@ -40,8 +45,24 @@ class Game {
     }
 
     this.rowsLeftInColumn[column] -= 1;
+    this.previewCell = {
+      column: null,
+      row: null
+    }
+
     if (this.checkForWinner()) return
     this.updateCurrentPlayer();
+  }
+
+  previewSelection(column) {
+
+    if (this.rowsLeftInColumn[column] === -1) return
+    this.previewCell = {
+      row: this.rowsLeftInColumn[column],
+      column
+    }
+
+
   }
 
   updateCurrentPlayer() {

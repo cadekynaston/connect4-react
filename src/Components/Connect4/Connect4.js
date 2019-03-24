@@ -15,6 +15,7 @@ class Connect4 extends React.Component {
     }
 
     this.selectColumn = this.selectColumn.bind(this)
+    this.previewSelection = this.previewSelection.bind(this)
     this.restartGame = this.restartGame.bind(this)
   }
 
@@ -23,6 +24,19 @@ class Connect4 extends React.Component {
     if (this.state.game.winner) return
 
     this.state.game.updateBoard(column);
+    this.setState(prevState => {
+      return prevState;
+    })
+
+    this.previewSelection(column)
+
+  }
+
+  previewSelection(column) {
+
+    if (this.state.game.winner) return
+
+    this.state.game.previewSelection(column);
     this.setState(prevState => {
       return prevState;
     })
@@ -39,8 +53,15 @@ class Connect4 extends React.Component {
 
     return (
       <>
-        <GameInfo restartGame={this.restartGame} game={this.state.game} />
-        <GameBoard selectColumn={this.selectColumn} game={this.state.game} />
+        <GameInfo
+          restartGame={this.restartGame}
+          game={this.state.game}
+        />
+        <GameBoard
+          selectColumn={this.selectColumn}
+          previewSelection={this.previewSelection}
+          game={this.state.game}
+        />
       </>
     )
   }

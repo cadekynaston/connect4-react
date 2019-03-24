@@ -5,7 +5,24 @@ import GamePiece from '../GamePiece/GamePiece'
 function GameBoard(props) {
   let gamePieces = props.game.board.map((column, i) => {
     return column.map((piece, j) => {
-      return <GamePiece columnClick={props.selectColumn} key={`${i}${j}`} column={j} row={i} color={piece.color} />
+
+      let preview = (props.game.previewCell.row === i && props.game.previewCell.column === j);
+      let cellColor = piece.color
+      if (preview) {
+        cellColor = props.game.players[props.game.currentPlayer].color
+      }
+
+      return  (
+        <GamePiece
+          key={`${i}${j}`}
+          column={j}
+          row={i}
+          color={cellColor}
+          columnClick={props.selectColumn}
+          previewSelection={props.previewSelection}
+          preview={preview}
+        />
+      )
     })
   })
 

@@ -22,6 +22,10 @@ body {
   background-color: #fff;
 }
 
+.game-piece.preview {
+  opacity: .5;
+}
+
 .game-piece:hover {
   cursor: pointer;
 }
