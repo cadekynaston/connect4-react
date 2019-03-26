@@ -4,6 +4,15 @@ body {
   font-family: 'Assistant', sans-serif;
   color: rgb(56, 44, 44);
 }
+
+.container {
+  display: inline-flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -12,9 +21,7 @@ body {
   width: 580px;
   height: 500px;
   padding: 10px;
-  margin: 0 auto;
   background-color: #3D5664;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .game-piece {
@@ -23,7 +30,7 @@ body {
 }
 
 .game-piece.preview {
-  opacity: .5;
+  opacity: .3;
 }
 
 .game-piece:hover {
@@ -31,5 +38,25 @@ body {
 }
 
 .game-info {
+  border: 1px solid gray;
+  padding: 10px;
   text-align: center;
+}
+
+.player-info {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 5px;
+}
+
+.player-info .circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.player-info .circle:hover {
+  cursor: pointer;
 }

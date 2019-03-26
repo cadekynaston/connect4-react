@@ -18,8 +18,10 @@ class Game {
 
     this.players = [
       {
+        name: 'Player 1',
         color: '#D55A49'
       }, {
+        name: 'Player 2',
         color: '#CFB961'
       }
     ]
