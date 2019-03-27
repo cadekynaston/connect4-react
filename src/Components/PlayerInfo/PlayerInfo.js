@@ -1,7 +1,5 @@
 import React from 'react'
-
 import { ChromePicker } from 'react-color';
-
 
 class PlayerInfo extends React.Component {
   constructor() {
@@ -53,8 +51,17 @@ class PlayerInfo extends React.Component {
 
     return (
       <div className="player-info">
-        <p>{this.props.name}</p>
-        <div style={{backgroundColor:this.props.playerColor}} onClick={this.handleClick} className="circle"></div>
+
+        <ul>
+          <li><p>Name: {this.props.name}</p></li>
+          <li>
+            <p>Color:</p>
+            <div style={{backgroundColor:this.props.playerColor}} onClick={this.handleClick} className="circle" />
+          </li>
+        </ul>
+
+
+
         { this.state.displayColorPicker ?
           <div className="popover" style={ popover }>
             <div className="cover" style={ cover } onClick={ this.handleClose } />

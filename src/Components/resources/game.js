@@ -33,6 +33,7 @@ class Game {
 
     this.currentPlayer = 0;
     this.winner = false
+    this.tieGame = false
     this.rowsLeftInColumn = Array(7).fill(5)
   }
 
@@ -53,6 +54,10 @@ class Game {
     }
 
     if (this.checkForWinner()) return
+    if (this.rowsLeftInColumn.every(col => col === -1)) {
+      this.tieGame = true
+      return
+    }
     this.updateCurrentPlayer();
   }
 

@@ -38,17 +38,44 @@ body {
 }
 
 .game-info {
+  width: 300px;
   border: 1px solid gray;
   padding: 10px;
   text-align: center;
 }
 
+.player-info-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
 .player-info {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   margin-bottom: 5px;
+  width: 100%;
+}
+
+.player-info ul {
+  text-align: left;
+  list-style-type: none;
+  padding-left: 0;
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  border-right: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.player-info ul li {
+  display: inline-flex;
 }
 
 .player-info .circle {
