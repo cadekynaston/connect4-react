@@ -7,7 +7,7 @@ function GameBoard(props) {
     return column.map((piece, j) => {
 
       let preview = (props.game.previewCell.row === i && props.game.previewCell.column === j);
-      console.log(piece, Date.now())
+
       let cellColor = piece.playersMove !== null
         ? props.game.players[piece.playersMove].color
         : preview

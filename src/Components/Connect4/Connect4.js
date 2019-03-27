@@ -3,8 +3,6 @@ import React from 'react'
 import GameBoard from '../GameBoard/GameBoard'
 import GameInfo from '../GameInfo/GameInfo'
 import Game from '../resources/game';
-import { TwitterPicker } from 'react-color';
-
 
 class Connect4 extends React.Component {
 
@@ -18,7 +16,7 @@ class Connect4 extends React.Component {
     this.selectColumn = this.selectColumn.bind(this)
     this.previewSelection = this.previewSelection.bind(this)
     this.changePlayerColor = this.changePlayerColor.bind(this)
-    this.handleChangeComplete = this.handleChangeComplete.bind(this)
+    this.handleColorChangeComplete = this.handleColorChangeComplete.bind(this)
     this.restartGame = this.restartGame.bind(this)
   }
 
@@ -43,9 +41,9 @@ class Connect4 extends React.Component {
     })
   }
 
-  handleChangeComplete(color) {
+  handleColorChangeComplete(player, newColor) {
     this.setState(prevState => {
-      prevState.game.players[0].color = color.hex;
+      prevState.game.players[player].color = newColor;
       return prevState;
     })
   }
@@ -67,9 +65,7 @@ class Connect4 extends React.Component {
 
     return (
       <div className="container">
-        <TwitterPicker
-          color={ this.state.game.players[0].color }
-          onChangeComplete={ this.handleChangeComplete }/>
+
         <GameBoard
           selectColumn={this.selectColumn}
           previewSelection={this.previewSelection}
@@ -78,6 +74,7 @@ class Connect4 extends React.Component {
         <GameInfo
           restartGame={this.restartGame}
           changePlayerColor={this.changePlayerColor}
+          handleColorChangeComplete={this.handleColorChangeComplete}
           game={this.state.game}
         />
       </div>
