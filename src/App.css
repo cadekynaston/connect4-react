@@ -29,6 +29,23 @@ body {
   background-color: #fff;
 }
 
+.winning-move {
+  border: 10px solid rgb(77, 182, 58);
+  animation: borderColorChangeAnimation 2s infinite;
+}
+
+@keyframes borderColorChangeAnimation {
+  0%{
+    border: 10px solid rgb(42, 145, 28);
+  }
+  50%{
+    border: 10px solid rgb(77, 182, 58);
+  }
+  100%{
+    border: 10px solid rgb(42, 145, 28);
+  }
+}
+
 .game-piece.preview {
   opacity: .3;
 }

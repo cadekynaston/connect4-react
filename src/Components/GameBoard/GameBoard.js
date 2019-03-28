@@ -23,6 +23,7 @@ function GameBoard(props) {
           columnClick={props.selectColumn}
           previewSelection={props.previewSelection}
           preview={preview}
+          winningMove={piece.winningMove}
         />
       )
     })

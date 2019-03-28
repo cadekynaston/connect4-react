@@ -11,6 +11,7 @@ class Game {
           row: i,
           column: j,
           playersMove: null,
+          winningMove: false,
         })
       }
       this.board.push(column);
@@ -19,10 +20,10 @@ class Game {
     this.players = [
       {
         name: 'Player 1',
-        color: '#D55A49'
+        color: '#E0523F'
       }, {
         name: 'Player 2',
-        color: '#CFB961'
+        color: '#F5DB72'
       }
     ]
 
@@ -30,7 +31,7 @@ class Game {
       column: null,
       row: null
     }
-
+    this.winningMoves = null
     this.currentPlayer = 0;
     this.winner = false
     this.tieGame = false
@@ -53,7 +54,13 @@ class Game {
       row: null
     }
 
-    if (this.checkForWinner()) return
+    if (this.checkForWinner()) {
+      this.winningMoves.forEach(move => {
+        this.board[move[0]][move[1]].winningMove = true;
+      })
+      return
+    }
+
     if (this.rowsLeftInColumn.every(col => col === -1)) {
       this.tieGame = true
       return
@@ -117,39 +124,52 @@ class Game {
   }
 
   vertical(column, row) {
+    let moves = [[column, row]];
     for(let i = 1; i < 4; i++) {
       if (this.board[column][row].playersMove === null || this.board[column][row].playersMove !== this.board[column + i][row].playersMove) {
         return false
       }
+      moves.push([column + i, row])
     }
+    this.winningMoves = moves
     return true
   }
 
 
   horizontal(column, row) {
+    let moves = [[column, row]];
     for(let i = 1; i < 4; i++) {
       if (this.board[column][row].playersMove === null || this.board[column][row].playersMove !== this.board[column][row + i].playersMove) {
         return false
       }
+      moves.push([column, row+i])
     }
+    this.winningMoves = moves
     return true
   }
 
   downRight(column, row) {
+    let moves = [[column, row]];
     for(let i = 1; i < 4; i++) {
       if (this.board[column][row].playersMove === null || this.board[column][row].playersMove !== this.board[column + i][row + i].playersMove) {
         return false
       }
+      moves.push([column+i, row+i])
     }
+
+    this.winningMoves = moves
     return true
   }
 
   downLeft(column, row) {
+    let moves = [[column, row]];
     for(let i = 1; i < 4; i++) {
       if (this.board[column][row].playersMove === null || this.board[column][row].playersMove !== this.board[column + i][row - i].playersMove) {
         return false
       }
+      moves.push([column+i, row-i])
     }
+    this.winningMoves = moves
     return true
   }
 
