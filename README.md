@@ -13,12 +13,21 @@ npm install
 npm start
 ```
 
-## Hosting on Github Pages
+---
+### Hosting on Github Pages
 
-If you want to host this project on github pages you need to update the homepage setting in the package.json to include your repo and username and then run:
+If you want to host this project on github pages you need to update the homepage setting in the `package.json` to include your repo and username
+
+
+
+```javascript
+"homepage": "https://[your github username].github.io/[your repo]",
+```
+
+and then run
 
 ```
 npm run deploy
 ```
-
+every time you want to deploy.
 
