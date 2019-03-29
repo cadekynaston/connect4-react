@@ -10,9 +10,6 @@ class PlayerInfo extends React.Component {
       displayColorPicker: false,
     };
 
-    // this.handleClose = this.handleClose.bind(this)
-    // this.handleClick = this.handleClick.bind(this)
-    // this.handleNameChange = this.handleNameChange.bind(this)
   }
 
   handleClose = () => {
@@ -30,12 +27,6 @@ class PlayerInfo extends React.Component {
   handleNameChange = (event) => {
     this.props.handlePlayerNameChange(this.props.playerNum, event.target.value)
   }
-
-
-  // let handleHover = () => {
-  //   this.props.previewSelection(this.props.column)
-  // }
-
 
   render() {
 

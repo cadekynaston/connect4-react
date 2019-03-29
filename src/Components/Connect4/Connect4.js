@@ -12,15 +12,9 @@ class Connect4 extends React.Component {
     this.state = {
       game: new Game()
     }
-
-    this.selectColumn = this.selectColumn.bind(this)
-    this.previewSelection = this.previewSelection.bind(this)
-    this.handleColorChangeComplete = this.handleColorChangeComplete.bind(this)
-    this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this)
-    this.restartGame = this.restartGame.bind(this)
   }
 
-  selectColumn(column) {
+  selectColumn = column => {
     if (this.state.game.winner || this.state.game.tieGame) return
     this.state.game.updateBoard(column);
     this.setState(prevState => {
@@ -29,7 +23,7 @@ class Connect4 extends React.Component {
     this.previewSelection(column)
   }
 
-  previewSelection(column) {
+  previewSelection = column => {
     if (this.state.game.winner) return
     this.state.game.previewSelection(column);
     this.setState(prevState => {
@@ -37,21 +31,21 @@ class Connect4 extends React.Component {
     })
   }
 
-  handleColorChangeComplete(player, newColor) {
+  handleColorChangeComplete = (player, newColor) => {
     this.setState(prevState => {
       prevState.game.players[player].color = newColor;
       return prevState;
     })
   }
 
-  handlePlayerNameChange(player, newName) {
+  handlePlayerNameChange = (player, newName) => {
     this.setState(prevState => {
       prevState.game.players[player].name = newName;
       return prevState
     })
   }
 
-  restartGame() {
+  restartGame = () => {
     this.setState({
       game: new Game()
     })
