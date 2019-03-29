@@ -22,13 +22,16 @@ function GameInfo(props) {
         playerNum={0}
         playerColor={props.game.players[0].color}
         name={props.game.players[0].name}
-        handleColorChangeComplete={props.handleColorChangeComplete}/>
+        handleColorChangeComplete={props.handleColorChangeComplete}
+        handlePlayerNameChange={props.handlePlayerNameChange}/>
 
       <PlayerInfo
         playerNum={1}
         playerColor={props.game.players[1].color}
         name={props.game.players[1].name}
-        handleColorChangeComplete={props.handleColorChangeComplete}/>
+        handleColorChangeComplete={props.handleColorChangeComplete}
+        handlePlayerNameChange={props.handlePlayerNameChange}/>
+
       </div>
 
       <button onClick={props.restartGame}>Reset</button>

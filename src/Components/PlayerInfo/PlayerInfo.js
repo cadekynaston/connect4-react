@@ -10,8 +10,9 @@ class PlayerInfo extends React.Component {
       displayColorPicker: false,
     };
 
-    this.handleClose = this.handleClose.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    // this.handleClose = this.handleClose.bind(this)
+    // this.handleClick = this.handleClick.bind(this)
+    // this.handleNameChange = this.handleNameChange.bind(this)
   }
 
   handleClose = () => {
@@ -24,6 +25,10 @@ class PlayerInfo extends React.Component {
 
   handleColorChange = (color) => {
     this.props.handleColorChangeComplete(this.props.playerNum, color.hex)
+  }
+
+  handleNameChange = (event) => {
+    this.props.handlePlayerNameChange(this.props.playerNum, event.target.value)
   }
 
 
@@ -53,7 +58,7 @@ class PlayerInfo extends React.Component {
       <div className="player-info">
 
         <ul>
-          <li><p>Name: {this.props.name}</p></li>
+          <li><p>Name: <input type="text" value={this.props.name} onChange={this.handleNameChange} /></p></li>
           <li>
             <p>Color:</p>
             <div style={{backgroundColor:this.props.playerColor}} onClick={this.handleClick} className="circle" />
