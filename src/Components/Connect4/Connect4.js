@@ -16,8 +16,8 @@ class Connect4 extends React.Component {
 
   selectColumn = column => {
     if (this.state.game.winner || this.state.game.tieGame) return
-    this.state.game.updateBoard(column);
     this.setState(prevState => {
+      prevState.game.updateBoard(column);
       return prevState;
     })
     this.previewSelection(column)
@@ -25,8 +25,8 @@ class Connect4 extends React.Component {
 
   previewSelection = column => {
     if (this.state.game.winner) return
-    this.state.game.previewSelection(column);
     this.setState(prevState => {
+      prevState.game.previewSelection(column);
       return prevState;
     })
   }

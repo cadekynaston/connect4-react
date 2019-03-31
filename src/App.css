@@ -1,8 +1,12 @@
-/* @import url('https://fonts.googleapis.com/css?family=Assistant:300,400,700'); */
-
 body {
   font-family: 'Assistant', sans-serif;
   color: rgb(56, 44, 44);
+  background-color: rgb(240, 240, 240);
+}
+
+.app {
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -10,6 +14,7 @@ body {
   justify-content: center;
   margin: 0 auto;
   margin-top: 50px;
+  border-radius: 3px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -22,6 +27,7 @@ body {
   height: 500px;
   padding: 10px;
   background-color: #3D5664;
+  border-radius: 3px 0 0 3px;
 }
 
 .game-piece {
@@ -56,7 +62,8 @@ body {
 
 .game-info {
   width: 300px;
-  border: 1px solid gray;
+  background-color: white;
+  border-radius: 0 3px 3px 0;
   padding: 10px;
   text-align: center;
 }
@@ -64,10 +71,9 @@ body {
 .player-info-container {
   box-sizing: border-box;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  margin-bottom: 10px;
 }
 
 .player-info {
@@ -87,25 +93,73 @@ body {
   width: 100%;
   padding: 10px;
   margin: 0;
-  border-right: 1px solid gray;
+  border: 1px solid gray;
+  border-radius: 3px;
   box-sizing: border-box;
+}
+
+.player-info:first-child::before {
+  content: 'player 1';
+}
+
+.player-info::before {
+  content: 'player 2';
+  font-size: 12px;
+  text-align: left;
+  color: gray;
 }
 
 .player-info ul li {
   display: inline-flex;
 }
 
+.player-info ul li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
 .player-info .circle {
   height: 20px;
-  width: 20px;
-  border-radius: 50%;
+  width: 80px;
   margin-left: 10px;
+  transition: box-shadow .2s ease-out;
+
 }
 
 .player-info .circle:hover {
   cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.75);
+
 }
 
 .chrome-picker {
   position: relative;
 }
+
+input {
+  height: 20px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #DDD;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
+
+button {
+  border: 1px solid red;
+  padding: 8px 12px;
+  border-radius: 3px;
+  transition: box-shadow .2s ease-out;
+}
+
+button:hover {
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+  cursor: pointer;
+}
+
+button:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+

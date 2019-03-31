@@ -18,6 +18,7 @@ function GameInfo(props) {
       <h2>{currentGameState}</h2>
 
       <div className="player-info-container">
+
       <PlayerInfo
         playerNum={0}
         playerColor={props.game.players[0].color}
