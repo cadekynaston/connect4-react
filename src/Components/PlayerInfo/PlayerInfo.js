@@ -49,9 +49,9 @@ class PlayerInfo extends React.Component {
       <div className="player-info">
 
         <ul>
-          <li><p>Name: <input type="text" value={this.props.name} onChange={this.handleNameChange} /></p></li>
+          <li><p>Name <input type="text" value={this.props.name} onChange={this.handleNameChange} /></p></li>
           <li>
-            <p>Color:</p>
+            <p>Color</p>
             <div style={{backgroundColor:this.props.playerColor}} onClick={this.handleClick} className="circle" />
           </li>
         </ul>
