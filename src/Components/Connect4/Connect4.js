@@ -15,16 +15,21 @@ class Connect4 extends React.Component {
   }
 
   selectColumn = column => {
+
+    // had to use callback function for previewSelection method due to async from setState
     if (this.state.game.winner || this.state.game.tieGame) return
     this.setState(prevState => {
       prevState.game.updateBoard(column);
       return prevState;
-    })
-    this.previewSelection(column)
+    }, this.previewSelection(column))
+
   }
 
   previewSelection = column => {
-    if (this.state.game.winner) return
+    if (this.state.game.winner || this.state.game.tieGame) {
+     this.removePreview()
+     return
+    }
     this.setState(prevState => {
       prevState.game.previewSelection(column);
       return prevState;
@@ -32,7 +37,6 @@ class Connect4 extends React.Component {
   }
 
   removePreview = () => {
-
     this.setState(prevState => {
       prevState.game.previewCell = {
         column: null,
