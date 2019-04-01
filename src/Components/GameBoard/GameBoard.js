@@ -22,6 +22,7 @@ function GameBoard(props) {
           color={cellColor}
           columnClick={props.selectColumn}
           previewSelection={props.previewSelection}
+          removePreview={props.removePreview}
           preview={preview}
           winningMove={piece.winningMove}
         />

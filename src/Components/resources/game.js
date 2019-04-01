@@ -1,6 +1,6 @@
 class Game {
 
-  constructor() {
+  constructor(players) {
 
     this.board = [];
     for (let i = 0; i < 6; i++) {
@@ -17,15 +17,19 @@ class Game {
       this.board.push(column);
     }
 
-    this.players = [
-      {
-        name: 'Player 1',
-        color: '#E0523F'
-      }, {
-        name: 'Player 2',
-        color: '#F5DB72'
-      }
-    ]
+    if (players) {
+      this.players = players
+    } else {
+      this.players = [
+        {
+          name: 'Player 1',
+          color: '#3FDAE0'
+        }, {
+          name: 'Player 2',
+          color: '#F5DB72'
+        }
+      ]
+    }
 
     this.previewCell = {
       column: null,
@@ -120,7 +124,6 @@ class Game {
         }
       }
     }
-
   }
 
   vertical(column, row) {
@@ -134,7 +137,6 @@ class Game {
     this.winningMoves = moves
     return true
   }
-
 
   horizontal(column, row) {
     let moves = [[column, row]];
@@ -172,7 +174,6 @@ class Game {
     this.winningMoves = moves
     return true
   }
-
 }
 
 export default Game

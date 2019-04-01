@@ -31,6 +31,19 @@ class Connect4 extends React.Component {
     })
   }
 
+  removePreview = () => {
+    if (this.state.game.winner) return
+
+    this.setState(prevState => {
+      prevState.game.previewCell = {
+        column: null,
+        row: null
+      }
+      return prevState;
+    })
+  }
+
+
   handleColorChangeComplete = (player, newColor) => {
     this.setState(prevState => {
       prevState.game.players[player].color = newColor;
@@ -45,9 +58,18 @@ class Connect4 extends React.Component {
     })
   }
 
-  restartGame = () => {
+  masterReset = () => {
     this.setState({
       game: new Game()
+    })
+  }
+
+  resetBoard = () => {
+    this.setState(prevState => {
+      const newGame = new Game(prevState.game.players)
+      return {
+        game: newGame
+      }
     })
   }
 
@@ -59,10 +81,12 @@ class Connect4 extends React.Component {
         <GameBoard
           selectColumn={this.selectColumn}
           previewSelection={this.previewSelection}
+          removePreview={this.removePreview}
           game={this.state.game}
         />
         <GameInfo
-          restartGame={this.restartGame}
+          resetBoard={this.resetBoard}
+          masterReset={this.masterReset}
           handleColorChangeComplete={this.handleColorChangeComplete}
           handlePlayerNameChange={this.handlePlayerNameChange}
           game={this.state.game}

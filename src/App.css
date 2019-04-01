@@ -45,7 +45,7 @@ body {
     border: 10px solid rgb(42, 145, 28);
   }
   50%{
-    border: 10px solid rgb(77, 182, 58);
+    border: 10px solid #61dafb;
   }
   100%{
     border: 10px solid rgb(42, 145, 28);
@@ -54,6 +54,19 @@ body {
 
 .game-piece.preview {
   opacity: .3;
+  animation: previewMoveAnimation 1s infinite;
+}
+
+@keyframes previewMoveAnimation {
+  0%{
+    opacity: .3;
+  }
+  50%{
+    opacity: .8;
+  }
+  100%{
+    opacity: .3;
+  }
 }
 
 .game-piece:hover {
@@ -104,7 +117,7 @@ body {
 
 .player-info::before {
   content: 'player 2';
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
   color: gray;
 }
@@ -136,7 +149,8 @@ body {
 }
 
 input {
-  height: 20px;
+  height: 26px;
+  font-size: 14px;
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 3px;
@@ -148,9 +162,16 @@ input {
 
 button {
   border: 1px solid red;
+  font-size: 16px;
   padding: 8px 12px;
+  margin: 5px;
   border-radius: 3px;
   transition: box-shadow .2s ease-out;
+}
+
+button.master {
+  color: white;
+  background-color: rgb(241, 58, 58);
 }
 
 button:hover {
