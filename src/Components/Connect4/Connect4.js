@@ -32,7 +32,6 @@ class Connect4 extends React.Component {
   }
 
   removePreview = () => {
-    if (this.state.game.winner) return
 
     this.setState(prevState => {
       prevState.game.previewCell = {
@@ -82,15 +81,14 @@ class Connect4 extends React.Component {
           selectColumn={this.selectColumn}
           previewSelection={this.previewSelection}
           removePreview={this.removePreview}
-          game={this.state.game}
-        />
+          game={this.state.game} />
+
         <GameInfo
           resetBoard={this.resetBoard}
           masterReset={this.masterReset}
           handleColorChangeComplete={this.handleColorChangeComplete}
           handlePlayerNameChange={this.handlePlayerNameChange}
-          game={this.state.game}
-        />
+          game={this.state.game} />
 
       </div>
     )
