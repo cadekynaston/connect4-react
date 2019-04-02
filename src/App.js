@@ -10,7 +10,7 @@ class App extends Component {
         <Connect4 />
 
         <p className="git-links">Made by&nbsp;
-          <a href="https://github.com/cadekynaston">Cade Kynaston</a>
+          <a href="https://www.linkedin.com/in/cadekynaston/">Cade Kynaston</a>
         </p>
         <a href="https://github.com/cadekynaston/connect4-react">View the code</a>
       </div>
