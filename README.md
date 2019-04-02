@@ -35,7 +35,6 @@ every time you want to deploy.
 ### Built With
 
 * [create-react-app](https://github.com/facebook/create-react-app)
-* [React](https://reactjs.org/)
 * CSS grid
 * [Google Fonts](https://fonts.google.com/)
 * [React Color](https://casesandberg.github.io/react-color/) - color pickers tool
