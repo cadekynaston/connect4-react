@@ -21,7 +21,7 @@ class Connect4 extends React.Component {
     this.setState(prevState => {
       prevState.game.updateBoard(column);
       return prevState;
-    }, this.previewSelection(column))
+    }, () => this.previewSelection(column))
 
   }
 

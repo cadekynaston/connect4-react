@@ -21,7 +21,6 @@ function GameInfo(props) {
     )
   )
 
-
   return (
     <div className="game-info">
       <h1>Connect 4&nbsp;

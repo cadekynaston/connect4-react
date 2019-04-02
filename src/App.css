@@ -6,7 +6,9 @@ body {
 
 .app {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
 .container {
@@ -74,11 +76,21 @@ body {
 }
 
 .game-info {
+  display: flex;
+  flex-direction: column;
   width: 300px;
   background-color: white;
   border-radius: 0 3px 3px 0;
   padding: 10px;
   text-align: center;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 0;
 }
 
 .player-info-container {
@@ -162,6 +174,7 @@ input {
 
 button {
   border: 1px solid red;
+  background-color: white;
   font-size: 16px;
   padding: 8px 12px;
   margin: 5px;
@@ -182,5 +195,13 @@ button:hover {
 button:focus {
   outline-color: transparent;
   outline-style: none;
+}
+
+.git-links {
+  margin-top: 10px;
+}
+
+a {
+  color: #222;
 }
 
