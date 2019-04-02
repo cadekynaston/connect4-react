@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 
 import Connect4 from './Components/Connect4/Connect4';
 import './App.css';
 
 class App extends Component {
   render() {
+
+    ReactGA.initialize('UA-137604730-1');
+    ReactGA.pageview('/connect4-react');
+
     return (
       <div className="app">
         <Connect4 />
